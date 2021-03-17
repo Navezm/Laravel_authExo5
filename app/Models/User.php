@@ -43,6 +43,6 @@ class User extends Authenticatable
 
     public function profils()
     {
-        return $this->belongsTo(Profil::class,'user_id');
+        return $this->hasOne(Profil::class, 'user_id');
     }
 }

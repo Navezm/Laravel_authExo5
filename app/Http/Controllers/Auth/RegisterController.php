@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'pseudo' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'age' => ['required', 'number'],
+            'age' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
