@@ -2,12 +2,14 @@
 
 <div class="row">
     @foreach ($photos as $item)
-        <div class="col-4">
-            <img height="150" src="{{asset('img/'.$item->src)}}" alt="">
-        </div>
-        @if ($loop->iteration % 3 ==0)
+        @if ($item->user_id == Auth::id())
+            <div class="col-4">
+                <img height="250" src="{{asset('img/'.$item->src)}}" alt="">
             </div>
-            <div class="row">
+            @if ($loop->iteration % 3 ==0)
+                </div>
+                <div class="row">
+            @endif
         @endif
     @endforeach
 </div>

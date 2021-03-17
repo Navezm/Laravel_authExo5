@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PhotoController extends Controller
 {
@@ -37,7 +38,11 @@ class PhotoController extends Controller
     public function store(Request $request)
     {
         $newEntry = new Photo;
-        
+        $newEntry->src = $request->file('src')->hashName();
+        $request->file('src')->storePublicly('img/', 'public');
+        $newEntry->user_id = Auth::id();
+        $newEntry->save();
+        return redirect('/photos');
     }
 
     /**

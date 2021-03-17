@@ -5,8 +5,10 @@
         <hr class="my-4">
         <p class="lead">{{$show->email}}</p>
         <p class="lead">{{$show->profils->age}}</p>
-        {{-- @if ($show->photos->src)
-            <img height="150px" src="{{asset('img/'.$show->photos->src)}}" alt="">
-        @endif --}}
+        @foreach ($photos as $item)
+            @if ($item->user_id == $show->id)
+                <img class="rounded mx-3" height="150px" src="{{asset('img/'.$item->src)}}" alt="">
+            @endif
+        @endforeach
     </div>
 </div>
