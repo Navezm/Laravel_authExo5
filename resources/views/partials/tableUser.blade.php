@@ -3,17 +3,19 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
+      @foreach ($users as $item)
+        <tr>
+            <th scope="row">{{$item->id}}</th>
+            <td>{{$item->profils->name}}</td>
+            <td>{{$item->profils->surname}}</td>
+            <td><a class="btn btn-info" href="users/{{$item->id}}">Details</a></td>
+        </tr>
+      @endforeach
     </tbody>
 </table>

@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    <div class="row">
-        <div id="menuBO" class="col-3 bg-secondary">
+    <div class="row m-0 p-0">
+        <div id="menuBO" class="col-2 bg-secondary m-0">
             @include('partials.menuBO')
         </div>
         
     
-        <div class="col-8">
+        <div class="col-10 m-0">
             @yield('content')
         </div>
     </div>

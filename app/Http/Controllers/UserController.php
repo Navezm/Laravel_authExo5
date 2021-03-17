@@ -50,10 +50,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $users = User::all();
+        $show = User::find($id);
         $profils = Profil::all();
         $photos = Photo::all();
-        return view('pages.userShow', compact('users', 'profils', 'photos'));
+        return view('pages.userShow', compact('show', 'profils', 'photos'));
     }
 
     /**
