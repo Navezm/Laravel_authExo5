@@ -6,6 +6,8 @@ use App\Models\Photo;
 use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -87,6 +89,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = User::find($id);
+        $photos = Photo::where('user_id', '=', Auth::id())->get();
+        foreach ($photos as $item) {
+            Storage::disk('public')->delete('img/'.$item->src);
+        }
+        $destroy->delete();
+        return redirect('/users');
     }
 }

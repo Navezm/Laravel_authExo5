@@ -10,5 +10,10 @@
                 <img class="rounded mx-3" height="150px" src="{{asset('img/'.$item->src)}}" alt="">
             @endif
         @endforeach
+        <form class="my-5" action="/users/{{$show->id}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
     </div>
 </div>

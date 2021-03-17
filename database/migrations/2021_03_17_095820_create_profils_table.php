@@ -19,7 +19,7 @@ class CreateProfilsTable extends Migration
             $table->string('surname', 150);
             $table->integer('age');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
