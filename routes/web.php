@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\UserController;
 use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +22,13 @@ Route::get('/', function () {
     $profils = Profil::all();
     return view('welcome', compact('users', 'profils'));
 });
+
+Route::get('/bo', function(){
+    return view('pages.backoffice');
+});
+
+Route::resource('photos', PhotoController::class);
+Route::resource('users', UserController::class);
 
 Auth::routes();
 

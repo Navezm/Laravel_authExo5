@@ -43,6 +43,10 @@ class User extends Authenticatable
 
     public function profils()
     {
-        return $this->hasOne(Profil::class, 'user_id');
+        return $this->hasOne(Profil::class,'user_id');
+    }
+    public function photos()
+    {
+        return $this->hasMany(Photo::class,'user_id');
     }
 }
